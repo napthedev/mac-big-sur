@@ -10,7 +10,16 @@ window.addEventListener("offline", () => (isOnline.value = false));
 <template>
   <div class="item" tabindex="0">
     <button class="label">
-      <i style="font-size: 20px; color: var(--text)" class="bx bx-wifi"></i>
+      <i
+        v-if="isOnline"
+        style="font-size: 20px; color: var(--text)"
+        class="bx bx-wifi"
+      ></i>
+      <i
+        v-if="!isOnline"
+        style="font-size: 20px; color: var(--text)"
+        class="bx bx-wifi-off"
+      ></i>
     </button>
 
     <div class="dropdown">

@@ -82,7 +82,7 @@ import Wifi from "./RightTopBar/Wifi.vue";
 
 .dropdown {
   position: absolute;
-  left: 0;
+  left: -5px;
   top: 100%;
   width: max-content;
   opacity: 0;
