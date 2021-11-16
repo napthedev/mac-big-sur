@@ -32,8 +32,8 @@ body {
   --text-transparent: #ffffff80;
   --text-gray: #bdc1c5;
   --top-bar: #1370ce80;
-  --dropdown: #423b64ab;
-  --dropdown-border: #d3d3d3;
+  --dropdown: #443f5fab;
+  --dropdown-border: #ffffff3d;
   --dropdown-item-hover: #158ddddc;
   --divider: #d3d3d37c;
 }

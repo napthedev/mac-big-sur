@@ -6,7 +6,7 @@ const percentage = ref();
 const myNavigator = navigator as any;
 
 if (myNavigator.getBattery) {
-  myNavigator.getBattery().then((battery) => {
+  myNavigator.getBattery().then((battery: any) => {
     percentage.value = battery.level * 100 + "%";
     battery.addEventListener("levelchange", function () {
       percentage.value = battery.level * 100 + "%";

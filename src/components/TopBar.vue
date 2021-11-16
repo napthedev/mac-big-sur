@@ -88,7 +88,7 @@ import Wifi from "./RightTopBar/Wifi.vue";
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  border: var(--dropdown-border);
+  border: 1px solid var(--dropdown-border);
   border-radius: 5px;
   overflow: hidden;
   padding: 5px;
