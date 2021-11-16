@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { Menu } from "../shared/constants";
+import Date from "./RightTopBar/Date.vue";
+import Battery from "./RightTopBar/Battery.vue";
+import Wifi from "./RightTopBar/Wifi.vue";
 </script>
 
 <template>
@@ -19,13 +22,17 @@ import { Menu } from "../shared/constants";
       </div>
     </div>
 
-    <div></div>
+    <div class="right">
+      <Wifi />
+      <Battery />
+      <Date style="font-size: 14px; margin: 0 10px" />
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .top-bar {
-  background: #1370ce80;
+  background: var(--top-bar);
   height: 25px;
   display: flex;
   justify-content: space-between;
@@ -34,25 +41,30 @@ import { Menu } from "../shared/constants";
   top: 0;
   left: 0;
   right: 0;
-}
-.top-bar * {
-  color: white;
+  padding: 0 10px;
+
+  * {
+    color: white;
+  }
 }
 
 .left {
   display: flex;
   align-items: center;
   height: 100%;
-  padding-left: 10px;
+
+  &:focus-within .item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .item {
   position: relative;
-}
 
-.item:hover .label,
-.label:hover {
-  background: #ffffff80;
+  &:hover .label {
+    background: var(--text-transparent);
+  }
 }
 
 .label {
@@ -62,11 +74,10 @@ import { Menu } from "../shared/constants";
   height: 25px;
   transition: 0.3s;
   cursor: pointer;
-}
 
-.left:focus-within .item:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
+  &:hover {
+    background: var(--text-transparent);
+  }
 }
 
 .dropdown {
@@ -77,35 +88,41 @@ import { Menu } from "../shared/constants";
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  border: #d3d3d3;
-  border-radius: 10px;
+  border: var(--dropdown-border);
+  border-radius: 5px;
   overflow: hidden;
   padding: 5px;
-  background: #3c404399;
-}
+  background: var(--dropdown);
 
-.dropdown * {
-  white-space: nowrap;
-}
+  * {
+    white-space: nowrap;
+  }
 
-.dropdown-child {
-  padding: 3px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  width: 100%;
-  text-align: left;
-}
+  &-child {
+    padding: 3px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: left;
 
-.dropdown-child:hover {
-  background: #158ddddc;
+    &:hover {
+      background: var(--dropdown-item-hover);
+    }
+  }
 }
 
 .divider {
   height: 1px;
   width: 100%;
-  background: #d3d3d37c;
+  background: var(--divider);
   margin: 3px 0;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 </style>

@@ -1,0 +1,46 @@
+.item {
+  position: relative;
+
+  &:focus-within .label {
+    background: var(--text-transparent);
+  }
+
+  &:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.label {
+  background: transparent;
+  border: none;
+  padding: 0 7px;
+  height: 25px;
+  transition: 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background: var(--text-transparent);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: max-content;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  border: var(--dropdown-border);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 15px;
+  background: var(--dropdown);
+
+  * {
+    white-space: nowrap;
+  }
+}
