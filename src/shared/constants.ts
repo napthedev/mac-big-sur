@@ -175,33 +175,45 @@ export const DockMenu: DockItemType[] = [
   {
     name: "Finder",
     icon: "/dock/finder.png",
+    type: "component",
   },
   {
     name: "Calculator",
     icon: "/dock/calculator.png",
+    type: "iframe",
+    iframe: `<iframe width="219" height="302" src="https://calculator-1.com/outdoor/?f=2d3135&r=2d3135" scrolling="no" frameborder="0"></iframe>`,
   },
   {
     name: "Calendar",
     icon: "/dock/calendar.png",
+    type: "iframe",
+    iframe: `<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FHo_Chi_Minh&showTitle=0&showTabs=1&showTz=0&showCalendars=0&showPrint=0&showNav=1&mode=MONTH" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>`,
   },
   {
     name: "VSCode",
     icon: "/dock/vscode.png",
+    type: "iframe",
   },
   {
     name: "App Store",
     icon: "/dock/appstore.png",
+    type: "iframe",
+    iframe: `<iframe src="https://en.wikipedia.org/wiki/App_Store_(iOS/iPadOS)" frameborder="0"></iframe>`,
   },
   {
     name: "Safari",
     icon: "/dock/safari.png",
+    type: "component",
   },
   {
     name: "System Preference",
     icon: "/dock/setting.png",
+    type: "component",
   },
   {
     name: "Github",
     icon: "/dock/github.png",
+    type: "link",
+    link: "https://github.com/napthedev",
   },
 ];

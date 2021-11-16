@@ -38,6 +38,12 @@
   overflow: hidden;
   padding: 15px;
   background: var(--dropdown);
+  border: 1px solid var(--border);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
 
   * {
     white-space: nowrap;

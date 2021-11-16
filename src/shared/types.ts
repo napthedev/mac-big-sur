@@ -6,4 +6,7 @@ export interface MenuItemType {
 export interface DockItemType {
   name: string;
   icon: string;
+  type: "iframe" | "component" | "link";
+  iframe?: string;
+  link?: string;
 }

@@ -97,6 +97,7 @@ import Wifi from "./RightTopBar/Wifi.vue";
   overflow: hidden;
   padding: 5px;
   background: var(--dropdown);
+  border: 1px solid var(--border);
 
   * {
     white-space: nowrap;

@@ -34,6 +34,7 @@ body {
   --text-transparent: #ffffff80;
   --text-gray: #bdc1c5;
   --top-bar: #1b1b1d4d;
+  --border: #d3d3d33b;
   --dropdown: #1b1b1d96;
   --dropdown-item-hover: #158ddddc;
   --divider: #d3d3d37c;
