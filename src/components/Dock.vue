@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { DockMenu } from "../shared/constants";
-import { ref } from "vue";
 
 const imageSize = 48;
 
-const dockRef = ref(null);
-
 addEventListener("mousemove", (e) => {
-  const onHover = dockRef.value?.contains(e.target as any);
+  const onHover = document.querySelector(".dock")?.contains(e.target as any);
 
   const dockIcons = document.querySelectorAll(
     ".dock-icon"
@@ -34,7 +31,7 @@ addEventListener("mousemove", (e) => {
 </script>
 
 <template>
-  <div ref="dockRef" class="dock">
+  <div class="dock">
     <div v-for="item in DockMenu" :key="item.name" :data-tooltip="item.name">
       <img class="dock-icon" :src="item.icon" alt="" />
     </div>
