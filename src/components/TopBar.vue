@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Menu } from "../shared/constants";
+import { TopBarMenu } from "../shared/constants";
 import Date from "./RightTopBar/Date.vue";
 import Battery from "./RightTopBar/Battery.vue";
 import Wifi from "./RightTopBar/Wifi.vue";
@@ -8,7 +8,12 @@ import Wifi from "./RightTopBar/Wifi.vue";
 <template>
   <div class="top-bar">
     <div class="left" tabindex="0">
-      <div class="item" tabindex="0" v-for="item in Menu" :key="item.label">
+      <div
+        class="item"
+        tabindex="0"
+        v-for="item in TopBarMenu"
+        :key="item.label"
+      >
         <button class="label" v-html="item.label"></button>
 
         <div class="dropdown">
@@ -88,7 +93,6 @@ import Wifi from "./RightTopBar/Wifi.vue";
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  border: 1px solid var(--dropdown-border);
   border-radius: 5px;
   overflow: hidden;
   padding: 5px;

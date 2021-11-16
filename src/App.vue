@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import TopBar from "./components/TopBar.vue";
+import Dock from "./components/Dock.vue";
 </script>
 
 <template>
   <TopBar />
+  <Dock />
 </template>
 
 <style lang="scss">
@@ -31,9 +33,8 @@ body {
   --text: #fff;
   --text-transparent: #ffffff80;
   --text-gray: #bdc1c5;
-  --top-bar: #1370ce80;
-  --dropdown: #443f5fab;
-  --dropdown-border: #ffffff3d;
+  --top-bar: #1b1b1d4d;
+  --dropdown: #1b1b1d96;
   --dropdown-item-hover: #158ddddc;
   --divider: #d3d3d37c;
 }

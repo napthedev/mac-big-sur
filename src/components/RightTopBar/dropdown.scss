@@ -34,7 +34,6 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  border: 1px solid var(--dropdown-border);
   border-radius: 5px;
   overflow: hidden;
   padding: 15px;
@@ -43,4 +42,9 @@
   * {
     white-space: nowrap;
   }
+}
+
+.gray {
+  font-size: 15px;
+  color: var(--text-gray);
 }

@@ -40,9 +40,4 @@ if (myNavigator.getBattery) {
 
 <style scoped lang="scss">
 @import "./dropdown.scss";
-
-.gray {
-  font-size: 15px;
-  color: var(--text-gray);
-}
 </style>

@@ -1,6 +1,6 @@
-import { MenuItemType } from "./types";
+import { DockItemType, MenuItemType } from "./types";
 
-export const Menu: MenuItemType[] = [
+export const TopBarMenu: MenuItemType[] = [
   {
     label: `<i style="font-size: 20px; color: var(--text)" class="bx bxl-apple" ></i>`,
     children: [
@@ -168,5 +168,40 @@ export const Menu: MenuItemType[] = [
       "New to Mac? Tour the Basics",
       "Get to know your MacBook",
     ],
+  },
+];
+
+export const DockMenu: DockItemType[] = [
+  {
+    name: "Finder",
+    icon: "/dock/finder.png",
+  },
+  {
+    name: "Calculator",
+    icon: "/dock/calculator.png",
+  },
+  {
+    name: "Calendar",
+    icon: "/dock/calendar.png",
+  },
+  {
+    name: "VSCode",
+    icon: "/dock/vscode.png",
+  },
+  {
+    name: "App Store",
+    icon: "/dock/appstore.png",
+  },
+  {
+    name: "Safari",
+    icon: "/dock/safari.png",
+  },
+  {
+    name: "System Preference",
+    icon: "/dock/setting.png",
+  },
+  {
+    name: "Github",
+    icon: "/dock/github.png",
   },
 ];
