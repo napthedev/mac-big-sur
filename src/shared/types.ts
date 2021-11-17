@@ -26,4 +26,5 @@ export interface DockItemType {
 export interface WallpaperType {
   name: string;
   url: string;
+  thumbnail: string;
 }

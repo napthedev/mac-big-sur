@@ -285,33 +285,41 @@ export const wallpapers: WallpaperType[] = [
   {
     name: "Big Sur Light",
     url: "/wallpaper/bigsur-light.jpg",
+    thumbnail: "/wallpaper-thumbnail/bigsur-light.jpg",
   },
   {
     name: "Big Sur Dark",
     url: "/wallpaper/bigsur-dark.jpg",
+    thumbnail: "/wallpaper-thumbnail/bigsur-dark.jpg",
   },
   {
     name: "Catalina",
     url: "/wallpaper/catalina.jpg",
+    thumbnail: "/wallpaper-thumbnail/catalina.jpg",
   },
   {
     name: "High Sierra",
     url: "/wallpaper/high_sierra.jpg",
+    thumbnail: "/wallpaper-thumbnail/high_sierra.jpg",
   },
   {
     name: "Mojave",
     url: "/wallpaper/mojave.jpg",
+    thumbnail: "/wallpaper-thumbnail/mojave.jpg",
   },
   {
     name: "Monterey",
     url: "/wallpaper/monterey.jpg",
+    thumbnail: "/wallpaper-thumbnail/monterey.jpg",
   },
   {
     name: "Sierra",
     url: "/wallpaper/sierra.jpg",
+    thumbnail: "/wallpaper-thumbnail/sierra.jpg",
   },
   {
     name: "Yosemite",
     url: "/wallpaper/yosemite.jpg",
+    thumbnail: "/wallpaper-thumbnail/yosemite.jpg",
   },
 ];

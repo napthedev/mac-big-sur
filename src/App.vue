@@ -66,7 +66,7 @@ body,
 
   &-enter-from,
   &-leave-to {
-    transition: 0.3s;
+    transition: 0.5s;
     opacity: 0;
   }
 }

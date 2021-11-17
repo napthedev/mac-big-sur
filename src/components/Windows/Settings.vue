@@ -6,7 +6,6 @@ import { computed } from "vue";
 const store = useStore();
 
 const wallpaperIndex = computed(() => store.state.wallpaperIndex);
-const wallpaperUrl = computed(() => wallpapers[wallpaperIndex.value]);
 
 const changeWallpaper = (index: number) => {
   store.commit("changeWallpaper", index);
@@ -22,7 +21,7 @@ const changeWallpaper = (index: number) => {
         :key="wallpaper.url"
         @click="changeWallpaper(index)"
       >
-        <img :src="wallpaper.url" alt="" />
+        <img :src="wallpaper.thumbnail" alt="" />
         <p
           :style="{
             color: index === wallpaperIndex ? '#1e90ff' : '',
