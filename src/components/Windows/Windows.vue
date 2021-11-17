@@ -14,6 +14,11 @@ const requestFullScreen = () => {
 
 const onDrag = ref(false);
 
+const top = ref(item.position.top);
+const left = ref(item.position.left);
+
+const headRef = ref();
+
 const store = useStore();
 const windowIndex = computed(() => store.state.windowIndexes[item.name]);
 
@@ -32,39 +37,68 @@ const closeApp = () => {
     value: 0,
   });
 };
+const minimizeWindow = () => {
+  store.commit("changeWindowIndex", {
+    name: item.name,
+    value: -1,
+  });
+};
+
+const dragStart = (e: MouseEvent) => {
+  bringToFront();
+  onDrag.value = true;
+
+  const target = headRef.value as HTMLDivElement;
+
+  const topDistance = e.clientY - target.getBoundingClientRect().top;
+  const leftDistance = e.clientX - target.getBoundingClientRect().left;
+
+  const handler = (e: MouseEvent) => {
+    if (onDrag.value && e.clientY > 30 && e.clientY < innerHeight - 30) {
+      top.value = `${e.clientY - topDistance}px`;
+      left.value = `${e.clientX - leftDistance}px`;
+    }
+  };
+
+  window.addEventListener("mousemove", handler);
+
+  window.addEventListener("mouseup", () => {
+    onDrag.value = false;
+    removeEventListener("mousemove", handler);
+  });
+};
 </script>
 
 <template>
   <transition name="fade">
     <div
-      v-if="windowIndex > 0"
-      @mousedown="bringToFront"
+      v-if="windowIndex !== 0"
       class="window"
       :style="{
         background: item.background,
-        top: item.position.top,
-        left: item.position.left,
+        top,
+        left,
         zIndex: windowIndex,
         boxShadow:
           windowIndex === maxWindowIndex
             ? '0 0 20px #1d1e1f'
             : '0 0 10px #1d1e1f',
+        opacity: windowIndex === -1 ? '0' : '',
+        visibility: windowIndex === -1 ? 'hidden' : 'visible',
       }"
-      v-draggable="{
-        bounds: 'parent',
-        handle: '.head',
-      }"
-      @start="onDrag = true"
-      @stop="onDrag = false"
     >
-      <div class="head">
+      <div class="head" @mousedown="dragStart" ref="headRef">
         <div class="actions-container">
           <span
             @click="closeApp"
             class="action"
             style="background: #ff0000"
           ></span>
-          <span class="action" style="background: #ffff00"></span>
+          <span
+            @click="minimizeWindow"
+            class="action"
+            style="background: #ffff00"
+          ></span>
           <span
             @click="requestFullScreen"
             class="action"
@@ -95,7 +129,9 @@ const closeApp = () => {
         ></iframe>
       </div>
 
-      <item.component v-if="item.type === 'component'" />
+      <template v-if="item.type === 'component'">
+        <component :is="item.component" />
+      </template>
     </div>
   </transition>
 </template>
@@ -107,8 +143,7 @@ const closeApp = () => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.3s, opacity 0.3s;
-  margin-top: 27px;
+  transition: box-shadow 0.3s, opacity 0.3s, transform 0.3s;
 
   .head {
     display: flex;
@@ -141,10 +176,12 @@ const closeApp = () => {
 .fade-enter-active,
 .fade-leave-active {
   opacity: 1;
+  transform: scale(1);
 }
 
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+  transform: scale(0);
 }
 </style>

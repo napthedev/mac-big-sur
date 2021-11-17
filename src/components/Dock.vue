@@ -2,16 +2,20 @@
 import Windows from "../components/Windows/Windows.vue";
 import { DockMenu } from "../shared/constants";
 import { useStore } from "vuex";
+import { onMounted, computed } from "vue";
 
 const store = useStore();
 
 const imageSize = 48;
 
-const mouseMoveHandler = (e: MouseEvent) => {
-  const dockIcons = document.querySelectorAll(
+let dockIcons: NodeListOf<HTMLImageElement>;
+onMounted(() => {
+  dockIcons = document.querySelectorAll(
     ".dock-icon"
   ) as NodeListOf<HTMLImageElement>;
+});
 
+const mouseMoveHandler = (e: MouseEvent) => {
   dockIcons.forEach((element: HTMLImageElement) => {
     const left =
       element.getBoundingClientRect().left +
@@ -31,10 +35,6 @@ const mouseMoveHandler = (e: MouseEvent) => {
 };
 
 const mouseLeaveHandler = () => {
-  const dockIcons = document.querySelectorAll(
-    ".dock-icon"
-  ) as NodeListOf<HTMLImageElement>;
-
   dockIcons.forEach((element: HTMLImageElement) => {
     element.style.width = imageSize + "px";
   });
@@ -59,6 +59,8 @@ const openApp = (name: string) => {
     value: store.state.maxWindowIndex,
   });
 };
+
+const windowIndexes = computed(() => store.state.windowIndexes);
 </script>
 
 <template>
@@ -67,7 +69,16 @@ const openApp = (name: string) => {
     @mousemove="mouseMoveHandler"
     @mouseleave="mouseLeaveHandler"
   >
-    <div v-for="item in DockMenu" :key="item.name" :data-tooltip="item.name">
+    <div
+      v-for="item in DockMenu"
+      :key="item.name"
+      :data-tooltip="item.name"
+      :class="{
+        opened:
+          windowIndexes[item.name] !== 0 &&
+          typeof windowIndexes[item.name] !== 'undefined',
+      }"
+    >
       <img
         @click="clickHandler(item.name)"
         class="dock-icon"
@@ -130,6 +141,22 @@ const openApp = (name: string) => {
   &:hover::before {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+.opened {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ffffff;
+    transform: translateX(-50%);
   }
 }
 </style>

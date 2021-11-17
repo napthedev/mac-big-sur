@@ -183,9 +183,10 @@ export const DockMenu: DockItemType[] = [
     type: "component",
     component: Finder,
     position: {
-      top: "100px",
+      top: "70px",
       left: "20%",
     },
+    background: "#262226",
   },
   {
     name: "Calculator",
@@ -198,7 +199,7 @@ export const DockMenu: DockItemType[] = [
     },
     background: "#2d3135",
     position: {
-      top: "150px",
+      top: "100px",
       left: "10%",
     },
   },
@@ -214,7 +215,7 @@ export const DockMenu: DockItemType[] = [
     background: "#FFFFFF",
     color: "#000000",
     position: {
-      top: "100px",
+      top: "80px",
       left: "40%",
     },
   },
@@ -229,7 +230,7 @@ export const DockMenu: DockItemType[] = [
     },
     background: "#252526",
     position: {
-      top: "50px",
+      top: "30px",
       left: "20%",
     },
   },
@@ -237,13 +238,12 @@ export const DockMenu: DockItemType[] = [
     name: "App Store",
     icon: "/dock/appstore.png",
     type: "component",
-    background: "#FFFFFF",
-    color: "#000000",
     position: {
       top: "50px",
       left: "35%",
     },
     component: AppStore,
+    background: "#262226",
   },
   {
     name: "Safari",
@@ -251,7 +251,7 @@ export const DockMenu: DockItemType[] = [
     type: "component",
     component: Safari,
     position: {
-      top: "100px",
+      top: "50px",
       left: "300px",
     },
     background: "#2E292E",

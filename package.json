@@ -7,7 +7,6 @@
     "dev": "vite"
   },
   "dependencies": {
-    "@braks/revue-draggable": "^0.3.1",
     "vue": "^3.2.16",
     "vuex": "^4.0.0-0"
   },
