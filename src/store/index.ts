@@ -11,10 +11,15 @@ export default createStore({
       },
       {} as any
     ),
+    wallpaperIndex: Number(localStorage.getItem("wallpaper")) || 0,
   },
   mutations: {
     increaseMaxWindowIndex: (state) => state.maxWindowIndex++,
     changeWindowIndex: (state, payload) =>
       (state.windowIndexes[payload.name] = payload.value),
+    changeWallpaper: (state, index) => {
+      state.wallpaperIndex = index;
+      localStorage.setItem("wallpaper", index);
+    },
   },
 });

@@ -1,9 +1,19 @@
 <script setup lang="ts">
 import TopBar from "./components/TopBar.vue";
 import Dock from "./components/Dock.vue";
+import { wallpapers } from "./shared/constants";
+import { useStore } from "vuex";
+import { computed } from "vue";
+
+const store = useStore();
+
+const backgroundUrl = computed(() => wallpapers[store.state.wallpaperIndex]);
 </script>
 
 <template>
+  <transition name="fade">
+    <img id="wallpaper" :key="backgroundUrl.url" :src="backgroundUrl.url" />
+  </transition>
   <TopBar />
   <Dock />
 </template>
@@ -30,21 +40,34 @@ import Dock from "./components/Dock.vue";
   user-select: none;
 }
 
-body {
+body,
+#app {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
 }
 
-#app {
-  background-image: url("/wallpaper.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+#wallpaper {
+  object-fit: cover;
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.5s;
+    opacity: 1;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transition: 0.3s;
+    opacity: 0;
+  }
 }
 </style>

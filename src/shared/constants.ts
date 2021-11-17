@@ -1,4 +1,4 @@
-import { DockItemType, MenuItemType } from "./types";
+import { DockItemType, MenuItemType, WallpaperType } from "./types";
 
 import AppStore from "../components/Windows/AppStore.vue";
 import Finder from "../components/Windows/Finder.vue";
@@ -278,5 +278,40 @@ export const DockMenu: DockItemType[] = [
     icon: "/dock/facebook.png",
     type: "link",
     link: "https://facebook.com/napthedev",
+  },
+];
+
+export const wallpapers: WallpaperType[] = [
+  {
+    name: "Big Sur Light",
+    url: "/wallpaper/bigsur-light.jpg",
+  },
+  {
+    name: "Big Sur Dark",
+    url: "/wallpaper/bigsur-dark.jpg",
+  },
+  {
+    name: "Catalina",
+    url: "/wallpaper/catalina.jpg",
+  },
+  {
+    name: "High Sierra",
+    url: "/wallpaper/high_sierra.jpg",
+  },
+  {
+    name: "Mojave",
+    url: "/wallpaper/mojave.jpg",
+  },
+  {
+    name: "Monterey",
+    url: "/wallpaper/monterey.jpg",
+  },
+  {
+    name: "Sierra",
+    url: "/wallpaper/sierra.jpg",
+  },
+  {
+    name: "Yosemite",
+    url: "/wallpaper/yosemite.jpg",
   },
 ];

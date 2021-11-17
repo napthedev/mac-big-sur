@@ -69,7 +69,7 @@ const dragStart = (e: MouseEvent) => {
 </script>
 
 <template>
-  <transition name="fade">
+  <transition name="zoom">
     <div
       v-if="windowIndex !== 0"
       class="window"
@@ -173,15 +173,17 @@ const dragStart = (e: MouseEvent) => {
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  opacity: 1;
-  transform: scale(1);
-}
+.zoom {
+  &-enter-active,
+  &-leave-active {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: scale(0);
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 </style>
