@@ -1,5 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import store from './store'
+import App from "./App.vue";
+import { DraggableDirective } from "@braks/revue-draggable";
+import { createApp } from "vue";
+import store from "./store";
 
-createApp(App).use(store).mount('#app')
+createApp(App)
+  .use(store)
+  .directive("draggable", DraggableDirective)
+  .mount("#app");

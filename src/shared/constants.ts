@@ -1,5 +1,6 @@
 import { DockItemType, MenuItemType } from "./types";
 
+import AppStore from "../components/Windows/AppStore.vue";
 import Finder from "../components/Windows/Finder.vue";
 import Safari from "../components/Windows/Safari.vue";
 import Settings from "../components/Windows/Settings.vue";
@@ -198,7 +199,7 @@ export const DockMenu: DockItemType[] = [
     background: "#2d3135",
     position: {
       top: "150px",
-      left: "30%",
+      left: "10%",
     },
   },
   {
@@ -206,11 +207,12 @@ export const DockMenu: DockItemType[] = [
     icon: "/dock/calendar.png",
     type: "iframe",
     iframe: {
-      url: "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FHo_Chi_Minh&showTitle=0&showTabs=1&showTz=0&showCalendars=0&showPrint=0&showNav=1&mode=MONTH",
+      url: "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FHo_Chi_Minh&showTitle=0&showTabs=0&showTz=0&showCalendars=0&showPrint=0&showNav=1&mode=MONTH",
       width: 400,
       height: 300,
     },
     background: "#FFFFFF",
+    color: "#000000",
     position: {
       top: "100px",
       left: "40%",
@@ -233,18 +235,15 @@ export const DockMenu: DockItemType[] = [
   },
   {
     name: "App Store",
-    icon: "/dockj/appstore.png",
-    type: "iframe",
-    iframe: {
-      url: "https://en.wikipedia.org/wiki/App_Store_(iOS/iPadOS)",
-      width: 600,
-      height: 400,
-    },
+    icon: "/dock/appstore.png",
+    type: "component",
     background: "#FFFFFF",
+    color: "#000000",
     position: {
-      top: "100px",
-      left: "40%",
+      top: "50px",
+      left: "35%",
     },
+    component: AppStore,
   },
   {
     name: "Safari",
@@ -255,6 +254,7 @@ export const DockMenu: DockItemType[] = [
       top: "100px",
       left: "300px",
     },
+    background: "#2E292E",
   },
   {
     name: "System Preference",
@@ -265,6 +265,7 @@ export const DockMenu: DockItemType[] = [
       top: "100px",
       left: "300px",
     },
+    background: "#252126",
   },
   {
     name: "Github",

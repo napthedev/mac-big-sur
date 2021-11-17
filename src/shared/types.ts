@@ -19,5 +19,6 @@ export interface DockItemType {
   };
   link?: string;
   component?: Component;
+  color?: string;
   background?: string;
 }

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import Windows from "../components/Windows/Windows.vue";
 import { DockMenu } from "../shared/constants";
+import { useStore } from "vuex";
+
+const store = useStore();
 
 const imageSize = 48;
 
@@ -43,8 +46,18 @@ const clickHandler = (name: string) => {
   if (item?.type === "link") {
     window.open(item.link);
   } else if (item?.type === "iframe") {
+    openApp(name);
   } else if (item?.type === "component") {
+    openApp(name);
   }
+};
+
+const openApp = (name: string) => {
+  store.commit("increaseMaxWindowIndex");
+  store.commit("changeWindowIndex", {
+    name: name,
+    value: store.state.maxWindowIndex,
+  });
 };
 </script>
 
