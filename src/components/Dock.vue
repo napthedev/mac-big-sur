@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import Windows from "../components/Windows/Windows.vue";
 import { DockMenu } from "../shared/constants";
 
 const imageSize = 48;
 
-addEventListener("mousemove", (e) => {
-  const onHover = document.querySelector(".dock")?.contains(e.target as any);
-
+const mouseMoveHandler = (e: MouseEvent) => {
   const dockIcons = document.querySelectorAll(
     ".dock-icon"
   ) as NodeListOf<HTMLImageElement>;
@@ -20,22 +19,53 @@ addEventListener("mousemove", (e) => {
     const distance = Math.abs(e.clientX - left);
 
     let sizeToChange =
-      distance < maxDistance && onHover
+      distance < maxDistance
         ? imageSize + (maxDistance - distance) * 0.15 + "px"
         : imageSize + "px";
 
     element.style.width = sizeToChange;
-    element.style.height = sizeToChange;
   });
-});
+};
+
+const mouseLeaveHandler = () => {
+  const dockIcons = document.querySelectorAll(
+    ".dock-icon"
+  ) as NodeListOf<HTMLImageElement>;
+
+  dockIcons.forEach((element: HTMLImageElement) => {
+    element.style.width = imageSize + "px";
+  });
+};
+
+const clickHandler = (name: string) => {
+  const item = DockMenu.find((i) => i.name === name);
+
+  if (item?.type === "link") {
+    window.open(item.link);
+  } else if (item?.type === "iframe") {
+  } else if (item?.type === "component") {
+  }
+};
 </script>
 
 <template>
-  <div class="dock">
+  <div
+    class="dock"
+    @mousemove="mouseMoveHandler"
+    @mouseleave="mouseLeaveHandler"
+  >
     <div v-for="item in DockMenu" :key="item.name" :data-tooltip="item.name">
-      <img class="dock-icon" :src="item.icon" alt="" />
+      <img
+        @click="clickHandler(item.name)"
+        class="dock-icon"
+        :src="item.icon"
+        alt=""
+      />
     </div>
   </div>
+  <template v-for="item in DockMenu.filter((i) => i.type !== 'link')">
+    <Windows :item="item" />
+  </template>
 </template>
 
 <style scoped lang="scss">
@@ -43,11 +73,12 @@ addEventListener("mousemove", (e) => {
   position: fixed;
   left: 50%;
   bottom: 10px;
+  z-index: 999999;
   transform: translateX(-50%);
   display: flex;
   align-items: flex-end;
   gap: 13px;
-  background: var(--top-bar);
+  background: var(--bg);
   border: 1px solid var(--border);
   padding: 10px;
   border-radius: 20px;
@@ -55,12 +86,13 @@ addEventListener("mousemove", (e) => {
 
   img {
     width: 48px;
-    height: 48px;
+    height: auto;
     border-radius: 15%;
     cursor: pointer;
     transition: 0.1s;
   }
 }
+
 [data-tooltip] {
   position: relative;
 
@@ -70,8 +102,8 @@ addEventListener("mousemove", (e) => {
     left: 50%;
     transform: translateX(-50%);
     top: -40px;
-    color: #fff;
     background: var(--dropdown);
+    border: 1px solid var(--border);
     white-space: nowrap;
     width: max-content;
     padding: 3px 7px;
@@ -79,6 +111,7 @@ addEventListener("mousemove", (e) => {
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
+    pointer-events: none;
   }
 
   &:hover::before {

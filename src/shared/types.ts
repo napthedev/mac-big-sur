@@ -1,3 +1,4 @@
+import { Component } from "vue";
 export interface MenuItemType {
   label: string;
   children: (null | string)[];
@@ -7,6 +8,16 @@ export interface DockItemType {
   name: string;
   icon: string;
   type: "iframe" | "component" | "link";
-  iframe?: string;
+  iframe?: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  position?: {
+    top: string;
+    left: string;
+  };
   link?: string;
+  component?: Component;
+  background?: string;
 }

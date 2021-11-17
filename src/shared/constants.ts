@@ -1,5 +1,9 @@
 import { DockItemType, MenuItemType } from "./types";
 
+import Finder from "../components/Windows/Finder.vue";
+import Safari from "../components/Windows/Safari.vue";
+import Settings from "../components/Windows/Settings.vue";
+
 export const TopBarMenu: MenuItemType[] = [
   {
     label: `<i style="font-size: 20px; color: var(--text)" class="bx bxl-apple" ></i>`,
@@ -176,44 +180,102 @@ export const DockMenu: DockItemType[] = [
     name: "Finder",
     icon: "/dock/finder.png",
     type: "component",
+    component: Finder,
+    position: {
+      top: "100px",
+      left: "20%",
+    },
   },
   {
     name: "Calculator",
     icon: "/dock/calculator.png",
     type: "iframe",
-    iframe: `<iframe width="219" height="302" src="https://calculator-1.com/outdoor/?f=2d3135&r=2d3135" scrolling="no" frameborder="0"></iframe>`,
+    iframe: {
+      url: "https://calculator-1.com/outdoor/?f=2d3135&r=2d3135",
+      width: 217,
+      height: 302,
+    },
+    background: "#2d3135",
+    position: {
+      top: "150px",
+      left: "30%",
+    },
   },
   {
     name: "Calendar",
     icon: "/dock/calendar.png",
     type: "iframe",
-    iframe: `<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FHo_Chi_Minh&showTitle=0&showTabs=1&showTz=0&showCalendars=0&showPrint=0&showNav=1&mode=MONTH" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>`,
+    iframe: {
+      url: "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FHo_Chi_Minh&showTitle=0&showTabs=1&showTz=0&showCalendars=0&showPrint=0&showNav=1&mode=MONTH",
+      width: 400,
+      height: 300,
+    },
+    background: "#FFFFFF",
+    position: {
+      top: "100px",
+      left: "40%",
+    },
   },
   {
     name: "VSCode",
     icon: "/dock/vscode.png",
     type: "iframe",
+    iframe: {
+      url: "https://vscode.dev/",
+      width: 800,
+      height: 500,
+    },
+    background: "#252526",
+    position: {
+      top: "50px",
+      left: "20%",
+    },
   },
   {
     name: "App Store",
-    icon: "/dock/appstore.png",
+    icon: "/dockj/appstore.png",
     type: "iframe",
-    iframe: `<iframe src="https://en.wikipedia.org/wiki/App_Store_(iOS/iPadOS)" frameborder="0"></iframe>`,
+    iframe: {
+      url: "https://en.wikipedia.org/wiki/App_Store_(iOS/iPadOS)",
+      width: 600,
+      height: 400,
+    },
+    background: "#FFFFFF",
+    position: {
+      top: "100px",
+      left: "40%",
+    },
   },
   {
     name: "Safari",
     icon: "/dock/safari.png",
     type: "component",
+    component: Safari,
+    position: {
+      top: "100px",
+      left: "300px",
+    },
   },
   {
     name: "System Preference",
     icon: "/dock/setting.png",
     type: "component",
+    component: Settings,
+    position: {
+      top: "100px",
+      left: "300px",
+    },
   },
   {
     name: "Github",
     icon: "/dock/github.png",
     type: "link",
     link: "https://github.com/napthedev",
+  },
+  {
+    name: "Facebook",
+    icon: "/dock/facebook.png",
+    type: "link",
+    link: "https://facebook.com/napthedev",
   },
 ];

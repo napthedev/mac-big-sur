@@ -9,15 +9,34 @@ import Dock from "./components/Dock.vue";
 </template>
 
 <style lang="scss">
+:root {
+  --text: #fff;
+  --text-transparent: #ffffff80;
+  --text-gray: #bdc1c5;
+  --bg: #1b1b1d4d;
+  --border: #d3d3d33b;
+  --dropdown: #1b1b1d96;
+  --dropdown-item-hover: #158ddddc;
+  --divider: #d3d3d37c;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#app {
   background-image: url("/wallpaper.jpg");
   background-size: cover;
   background-position: center;
@@ -26,17 +45,5 @@ body {
   width: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
-  margin: 0;
-}
-
-:root {
-  --text: #fff;
-  --text-transparent: #ffffff80;
-  --text-gray: #bdc1c5;
-  --top-bar: #1b1b1d4d;
-  --border: #d3d3d33b;
-  --dropdown: #1b1b1d96;
-  --dropdown-item-hover: #158ddddc;
-  --divider: #d3d3d37c;
 }
 </style>

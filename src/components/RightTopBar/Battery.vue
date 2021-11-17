@@ -20,10 +20,7 @@ if (myNavigator.getBattery) {
 <template>
   <div class="item" tabindex="0">
     <button class="label">
-      <i
-        style="font-size: 20px; color: var(--text)"
-        class="bx bxs-battery-low"
-      ></i>
+      <i style="font-size: 20px" class="bx bxs-battery-low"></i>
     </button>
 
     <div class="dropdown">
