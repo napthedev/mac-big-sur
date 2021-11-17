@@ -252,7 +252,7 @@ export const DockMenu: DockItemType[] = [
     component: Safari,
     position: {
       top: "50px",
-      left: "300px",
+      left: "40%",
     },
     background: "#2E292E",
   },
@@ -263,7 +263,7 @@ export const DockMenu: DockItemType[] = [
     component: Settings,
     position: {
       top: "100px",
-      left: "300px",
+      left: "30%",
     },
     background: "#252126",
   },

@@ -15,7 +15,7 @@ import Dock from "./components/Dock.vue";
   --text-gray: #bdc1c5;
   --bg: #1b1b1d4d;
   --border: #d3d3d33b;
-  --dropdown: #1b1b1d96;
+  --dropdown: #1b1b1dda;
   --dropdown-item-hover: #158ddddc;
   --divider: #d3d3d37c;
 }
@@ -27,6 +27,7 @@ import Dock from "./components/Dock.vue";
   outline: none;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
+  user-select: none;
 }
 
 body {

@@ -45,7 +45,6 @@ const minimizeWindow = () => {
 };
 
 const dragStart = (e: MouseEvent) => {
-  bringToFront();
   onDrag.value = true;
 
   const target = headRef.value as HTMLDivElement;
@@ -74,6 +73,7 @@ const dragStart = (e: MouseEvent) => {
     <div
       v-if="windowIndex !== 0"
       class="window"
+      @mousedown="bringToFront"
       :style="{
         background: item.background,
         top,

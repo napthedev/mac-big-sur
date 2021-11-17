@@ -22,5 +22,6 @@ import RightTopBar from "./RightTopBar/RightTopBar.vue";
   left: 0;
   right: 0;
   padding: 0 10px;
+  z-index: 999999;
 }
 </style>
