@@ -273,7 +273,7 @@ export const DockMenu: DockItemType[] = [
     name: "Github",
     icon: "/dock/github.png",
     type: "link",
-    link: "https://github.com/napthedev",
+    link: "https://github.com/napthedev/mac-big-sur.git",
   },
   {
     name: "Facebook",
