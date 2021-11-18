@@ -23,7 +23,7 @@ export const formatDate = () => {
   const dayOfMonth = now.getDate();
   const minutes = now.getMinutes();
   const hours24 = now.getHours();
-  const hours = hours24 % 12;
+  const hours = hours24 > 12 ? hours24 % 12 : hours24;
   const amOrPm = hours24 > 12 ? "PM" : "AM";
 
   return `${dayOfWeek} ${month} ${dayOfMonth} ${hours}:${minutes} ${amOrPm}`;
