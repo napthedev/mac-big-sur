@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { wallpapers, themes } from "../../shared/constants";
 import { useStore } from "vuex";
-import { computed, watch } from "vue";
+import { computed } from "vue";
 
 const store = useStore();
 
@@ -12,22 +12,6 @@ const changeWallpaper = (index: number) => {
 };
 
 const currentTheme = computed(() => store.state.theme);
-
-localStorage.setItem("theme", currentTheme.value);
-document.documentElement.setAttribute(
-  "data-theme",
-  themes[store.state.theme].attr
-);
-
-watch(
-  () => store.state.theme,
-  () => {
-    document.documentElement.setAttribute(
-      "data-theme",
-      themes[store.state.theme].attr
-    );
-  }
-);
 
 const changeTheme = (theme: number) => {
   store.commit("changeTheme", theme);

@@ -1,13 +1,31 @@
 <script setup lang="ts">
 import TopBar from "./components/TopBar.vue";
 import Dock from "./components/Dock.vue";
-import { wallpapers } from "./shared/constants";
+import { wallpapers, themes } from "./shared/constants";
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, watch } from "vue";
 
 const store = useStore();
 
 const backgroundUrl = computed(() => wallpapers[store.state.wallpaperIndex]);
+
+const currentTheme = computed(() => store.state.theme);
+
+localStorage.setItem("theme", currentTheme.value);
+document.documentElement.setAttribute(
+  "data-theme",
+  themes[store.state.theme].attr
+);
+
+watch(
+  () => store.state.theme,
+  () => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      themes[store.state.theme].attr
+    );
+  }
+);
 </script>
 
 <template>
