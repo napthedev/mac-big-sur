@@ -3,7 +3,8 @@ import TopBar from "./components/TopBar.vue";
 import Dock from "./components/Dock.vue";
 import { wallpapers, themes } from "./shared/constants";
 import { useStore } from "vuex";
-import { computed, watch } from "vue";
+import { computed, watch, ref } from "vue";
+import LoadingScreen from "./components/LoadingScreen.vue";
 
 const store = useStore();
 
@@ -26,11 +27,20 @@ watch(
     );
   }
 );
+
+const showLoadingScreen = ref(true);
+
+setTimeout(() => {
+  showLoadingScreen.value = false;
+}, 1500);
 </script>
 
 <template>
   <transition name="fade">
     <img id="wallpaper" :key="backgroundUrl.url" :src="backgroundUrl.url" />
+  </transition>
+  <transition name="fade">
+    <LoadingScreen v-if="showLoadingScreen" />
   </transition>
   <TopBar />
   <Dock />
