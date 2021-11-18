@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <img src="/dock/finder.png" alt="" />
-    <p>How to access files and folders</p>
-    <p>Inside a browser 😀</p>
+    <p>We can't access your files</p>
+    <p>inside a browser 😀</p>
   </div>
 </template>
 

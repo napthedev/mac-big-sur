@@ -20,14 +20,50 @@ const backgroundUrl = computed(() => wallpapers[store.state.wallpaperIndex]);
 
 <style lang="scss">
 :root {
+  --text: #000;
+  --text-transparent: #00000080;
+  --text-gray: #666469;
+  --bg: #8193af6b;
+  --border: #d3d3d33b;
+  --dropdown: #ffffffe0;
+  --dropdown-item-hover: #4b99fd;
+  --divider: #d3d3d37c;
+  --application-background: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #fff;
+    --text-transparent: #ffffff80;
+    --text-gray: #bdc1c5;
+    --bg: #1b1b1d4d;
+    --border: #d3d3d33b;
+    --dropdown: #1b1b1dda;
+    --dropdown-item-hover: #4b99fd;
+    --divider: #d3d3d37c;
+    --application-background: #262226;
+  }
+}
+[data-theme="light"] {
+  --text: #000;
+  --text-transparent: #00000080;
+  --text-gray: #666469;
+  --bg: #8193af6b;
+  --border: #d3d3d33b;
+  --dropdown: #ffffffe0;
+  --dropdown-item-hover: #4b99fd;
+  --divider: #d3d3d37c;
+  --application-background: #ffffff;
+}
+[data-theme="dark"] {
   --text: #fff;
   --text-transparent: #ffffff80;
   --text-gray: #bdc1c5;
   --bg: #1b1b1d4d;
   --border: #d3d3d33b;
   --dropdown: #1b1b1dda;
-  --dropdown-item-hover: #158ddddc;
+  --dropdown-item-hover: #4b99fd;
   --divider: #d3d3d37c;
+  --application-background: #262226;
 }
 
 * {
@@ -56,6 +92,9 @@ body,
   top: 0;
   left: 0;
   z-index: -2;
+}
+i {
+  color: #ffffff !important;
 }
 .fade {
   &-enter-active,

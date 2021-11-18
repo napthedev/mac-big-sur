@@ -26,7 +26,7 @@ const handleFormSubmit = () => {
 </script>
 <template>
   <div class="container">
-    <img src="/google.png" alt="" />
+    <img class="light-img" src="/logos/google.png" alt="" />
     <form @submit.prevent="handleFormSubmit">
       <input type="text" placeholder="Search..." v-model="inputValue" />
     </form>
@@ -53,6 +53,7 @@ const handleFormSubmit = () => {
     border-radius: 50px;
     padding: 0 20px;
     color: #000;
+    border: 1px solid #d3d3d3;
   }
 }
 </style>

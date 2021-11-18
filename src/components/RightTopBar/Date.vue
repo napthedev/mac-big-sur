@@ -10,5 +10,5 @@ setInterval(() => {
 </script>
 
 <template>
-  <div>{{ date }}</div>
+  <div style="color: white">{{ date }}</div>
 </template>

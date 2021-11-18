@@ -12,6 +12,7 @@ export default createStore({
       {} as any
     ),
     wallpaperIndex: Number(localStorage.getItem("wallpaper")) || 0,
+    theme: Number(localStorage.getItem("theme")) || 0,
   },
   mutations: {
     increaseMaxWindowIndex: (state) => state.maxWindowIndex++,
@@ -20,6 +21,10 @@ export default createStore({
     changeWallpaper: (state, index) => {
       state.wallpaperIndex = index;
       localStorage.setItem("wallpaper", index);
+    },
+    changeTheme: (state, index) => {
+      state.theme = index;
+      localStorage.setItem("theme", index);
     },
   },
 });

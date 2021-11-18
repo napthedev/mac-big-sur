@@ -107,6 +107,7 @@ const windowIndexes = computed(() => store.state.windowIndexes);
   padding: 10px;
   border-radius: 20px;
   height: 76px;
+  transition: 0.3s;
 
   img {
     width: 48px;

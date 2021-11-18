@@ -28,3 +28,9 @@ export interface WallpaperType {
   url: string;
   thumbnail: string;
 }
+
+export interface ThemeType {
+  name: string;
+  thumbnail: string;
+  attr: string;
+}

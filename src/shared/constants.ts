@@ -1,4 +1,4 @@
-import { DockItemType, MenuItemType, WallpaperType } from "./types";
+import { DockItemType, MenuItemType, ThemeType, WallpaperType } from "./types";
 
 import AppStore from "../components/Windows/AppStore.vue";
 import Finder from "../components/Windows/Finder.vue";
@@ -7,7 +7,7 @@ import Settings from "../components/Windows/Settings.vue";
 
 export const TopBarMenu: MenuItemType[] = [
   {
-    label: `<i style="font-size: 20px; color: var(--text)" class="bx bxl-apple" ></i>`,
+    label: `<i style="font-size: 20px;" class="bx bxl-apple" ></i>`,
     children: [
       "About This Mac",
       null,
@@ -186,7 +186,7 @@ export const DockMenu: DockItemType[] = [
       top: "70px",
       left: "20%",
     },
-    background: "#262226",
+    background: "var(--application-background)",
   },
   {
     name: "Calculator",
@@ -198,6 +198,7 @@ export const DockMenu: DockItemType[] = [
       height: 302,
     },
     background: "#2d3135",
+    color: "#FFFFFF",
     position: {
       top: "100px",
       left: "10%",
@@ -229,6 +230,7 @@ export const DockMenu: DockItemType[] = [
       height: 500,
     },
     background: "#252526",
+    color: "#FFFFFF",
     position: {
       top: "30px",
       left: "20%",
@@ -243,7 +245,7 @@ export const DockMenu: DockItemType[] = [
       left: "35%",
     },
     component: AppStore,
-    background: "#262226",
+    background: "var(--application-background)",
   },
   {
     name: "Safari",
@@ -254,7 +256,7 @@ export const DockMenu: DockItemType[] = [
       top: "50px",
       left: "40%",
     },
-    background: "#2E292E",
+    background: "var(--application-background)",
   },
   {
     name: "System Preference",
@@ -265,7 +267,7 @@ export const DockMenu: DockItemType[] = [
       top: "100px",
       left: "30%",
     },
-    background: "#252126",
+    background: "var(--application-background)",
   },
   {
     name: "Github",
@@ -321,5 +323,23 @@ export const wallpapers: WallpaperType[] = [
     name: "Yosemite",
     url: "/wallpaper/yosemite.jpg",
     thumbnail: "/wallpaper-thumbnail/yosemite.jpg",
+  },
+];
+
+export const themes: ThemeType[] = [
+  {
+    name: "Auto",
+    thumbnail: "/themes/auto.png",
+    attr: "",
+  },
+  {
+    name: "Light",
+    thumbnail: "/themes/light.png",
+    attr: "light",
+  },
+  {
+    name: "Dark",
+    thumbnail: "/themes/dark.png",
+    attr: "dark",
   },
 ];

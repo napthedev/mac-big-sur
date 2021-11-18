@@ -46,6 +46,7 @@ import { TopBarMenu } from "../shared/constants";
   height: 25px;
   transition: 0.3s;
   cursor: pointer;
+  color: #ffffff;
 
   &:hover {
     background: var(--text-transparent);
@@ -78,9 +79,11 @@ import { TopBarMenu } from "../shared/constants";
     background: transparent;
     width: 100%;
     text-align: left;
+    color: var(--text);
 
     &:hover {
       background: var(--dropdown-item-hover);
+      color: #fff;
     }
   }
 }

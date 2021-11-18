@@ -27,6 +27,7 @@ const openAppStore = () => {
 
   button {
     background: #1e90ff;
+    color: #fff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;

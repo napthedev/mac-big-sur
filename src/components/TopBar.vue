@@ -23,5 +23,6 @@ import RightTopBar from "./RightTopBar/RightTopBar.vue";
   right: 0;
   padding: 0 10px;
   z-index: 999999;
+  transition: 0.3s;
 }
 </style>

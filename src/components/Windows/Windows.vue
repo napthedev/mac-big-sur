@@ -88,22 +88,28 @@ const dragStart = (e: MouseEvent) => {
       }"
     >
       <div class="head" @mousedown="dragStart" ref="headRef">
-        <div class="actions-container">
-          <span
-            @click="closeApp"
-            class="action"
-            style="background: #ff0000"
-          ></span>
-          <span
-            @click="minimizeWindow"
-            class="action"
-            style="background: #ffff00"
-          ></span>
-          <span
-            @click="requestFullScreen"
-            class="action"
-            style="background: #00ff00"
-          ></span>
+        <div>
+          <div class="actions-container">
+            <span
+              @click="closeApp"
+              class="action bx bx-x"
+              style="background: #ff0000; font-size: 13px; line-height: 13px"
+            >
+            </span>
+            <span
+              @click="minimizeWindow"
+              class="action"
+              style="background: #ffff00; font-size: 13px; line-height: 12px"
+            >
+              -
+            </span>
+            <span
+              @click="requestFullScreen"
+              class="action bx bx-expand-alt"
+              style="background: #00ff00; font-size: 10px; line-height: 14px"
+            >
+            </span>
+          </div>
         </div>
         <div
           class="label"
@@ -143,7 +149,7 @@ const dragStart = (e: MouseEvent) => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.3s, opacity 0.3s, transform 0.3s;
+  transition: box-shadow 0.3s, opacity 0.3s, transform 0.3s, background 0.3s;
 
   .head {
     display: flex;
@@ -154,14 +160,22 @@ const dragStart = (e: MouseEvent) => {
     }
 
     .actions-container {
-      display: flex;
+      display: inline-flex;
       gap: 5px;
+
+      &:hover .action {
+        color: #363535;
+      }
     }
 
     .action {
-      width: 10px;
-      height: 10px;
+      width: 13px;
+      height: 13px;
       border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      color: transparent;
+      transition: 0.2s;
     }
 
     .label {
