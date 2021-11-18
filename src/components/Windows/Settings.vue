@@ -12,6 +12,9 @@ const changeWallpaper = (index: number) => {
 };
 
 const currentTheme = computed(() => store.state.theme);
+
+localStorage.setItem("theme", currentTheme.value);
+
 watch(
   () => store.state.theme,
   () => {
