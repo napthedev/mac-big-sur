@@ -14,6 +14,10 @@ const changeWallpaper = (index: number) => {
 const currentTheme = computed(() => store.state.theme);
 
 localStorage.setItem("theme", currentTheme.value);
+document.documentElement.setAttribute(
+  "data-theme",
+  themes[store.state.theme].attr
+);
 
 watch(
   () => store.state.theme,
