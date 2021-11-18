@@ -8,6 +8,7 @@ Live demo: [https://mac-bigsur.vercel.app/](https://mac-bigsur.vercel.app/)
 - Build tool: Vite
 - Typescript
 - Sass
+- BoxIcons
 
 ## Preview
 
